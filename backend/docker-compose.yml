@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  etl:
+    build: .
+    container_name: pokemon_etl
+    volumes:
+      - ./data:/app/data  # Mounts local data directory to persist the DB
