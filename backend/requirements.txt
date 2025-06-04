@@ -3,5 +3,3 @@ flask-cors
 requests
 uvicorn
 gunicorn
-graphene
-flask-graphql

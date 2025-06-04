@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
-import { PokemonDetail } from './pokemon-detail/pokemon-detail';
+import { PokemonDetail } from './components/pokemon-detail/pokemon-detail';
 import { App } from './app';
-import { PokemonListComponent } from './pokemon-list/pokemon-list';
-import { PokemonFilter } from './pokemon-filter/pokemon-filter';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list';
+import { PokemonFilter } from './components/pokemon-filter/pokemon-filter';
 
 
 export const routes: Routes = [
-   { path: '', component: PokemonFilter },
-  { path: 'pokemon/:name', component: PokemonDetail
-  }
+  { path: '', component: PokemonFilter },
+  {
+    path: 'pokemon/:name', component: PokemonDetail
+  },
+  { path: 'trigger-etl', loadComponent: () => import('./components/etl-trigger/etl-trigger').then(m => m.EtlTriggerComponent) },
 ];

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, effect, Input, OnInit, signal, SimpleChanges } from '@angular/core';
-import { PokemonService } from '../pokemon';
+import { PokemonService } from '../../services/pokemon';
 import { FormsModule } from '@angular/forms'; // <-- ✅ Import FormsModule
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';

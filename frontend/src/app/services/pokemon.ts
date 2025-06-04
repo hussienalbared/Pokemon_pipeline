@@ -15,7 +15,9 @@ export class PokemonService {
   triggerETL() {
     return this.http.post(`${this.api}/etl`, {});
   }
-  getPokemons(filters: { [key: string]: string }): Observable<Pokemon[]> {
+  getPokemons(filters: { [key: string]: string | number
+   }): Observable<Pokemon[]> {
+    console.log('Fetching pokemons with filters:', filters);
     let apiUrl = `${this.api}/api/pokemons`;
 
     let params = new HttpParams();
@@ -24,6 +26,8 @@ export class PokemonService {
         params = params.set(key, filters[key]);
       }
     }
+    
+    console.log('Query Params:', params.toString());
     return this.http.get<Pokemon[]>(apiUrl, { params });
   }
 }

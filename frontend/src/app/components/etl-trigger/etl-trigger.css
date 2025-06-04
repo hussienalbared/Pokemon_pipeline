@@ -1,0 +1,25 @@
+.etl-trigger-container {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 400px;
+  margin-top: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.5rem 1rem;
+}
+
+.output, .error {
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  font-family: monospace;
+}

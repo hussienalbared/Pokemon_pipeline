@@ -1,0 +1,86 @@
+2025-06-04 23:51:45,330 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+2025-06-04 23:51:45,330 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 23:51:54,625 - INFO - 127.0.0.1 - - [04/Jun/2025 23:51:54] "GET /api/pokemons HTTP/1.1" 200 -
+2025-06-04 23:52:00,511 - INFO - 127.0.0.1 - - [04/Jun/2025 23:52:00] "OPTIONS /etl HTTP/1.1" 200 -
+2025-06-04 23:52:00,521 - INFO - ETL process started
+2025-06-04 23:52:00,522 - INFO - ETL process completed
+2025-06-04 23:52:00,523 - INFO - 127.0.0.1 - - [04/Jun/2025 23:52:00] "POST /etl HTTP/1.1" 200 -
+2025-06-04 23:52:42,920 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+2025-06-04 23:52:42,921 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 23:54:02,630 - INFO - 127.0.0.1 - - [04/Jun/2025 23:54:02] "OPTIONS /etl HTTP/1.1" 200 -
+2025-06-04 23:54:02,640 - INFO - ETL process started
+2025-06-04 23:54:02,640 - INFO - ETL process completed
+2025-06-04 23:54:02,641 - INFO - 127.0.0.1 - - [04/Jun/2025 23:54:02] "POST /etl HTTP/1.1" 200 -
+2025-06-04 23:56:02,312 - INFO - 127.0.0.1 - - [04/Jun/2025 23:56:02] "GET /api/pokemons HTTP/1.1" 200 -
+2025-06-04 23:56:06,189 - INFO - 127.0.0.1 - - [04/Jun/2025 23:56:06] "GET /api/pokemons HTTP/1.1" 200 -
+2025-06-04 23:56:07,902 - INFO - 127.0.0.1 - - [04/Jun/2025 23:56:07] "GET /api/pokemons HTTP/1.1" 200 -
+2025-06-04 23:56:24,864 - INFO - 127.0.0.1 - - [04/Jun/2025 23:56:24] "GET /pokemon/mankey HTTP/1.1" 200 -
+2025-06-04 23:56:30,475 - INFO - 127.0.0.1 - - [04/Jun/2025 23:56:30] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:07:29] "OPTIONS /etl HTTP/1.1" 200 -
+INFO:root:ETL process started
+INFO:root:ETL process completed
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:07:29] "POST /etl HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:07:46] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:07:47] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:10:23] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:10:48] "OPTIONS /etl HTTP/1.1" 200 -
+INFO:root:ETL process started
+INFO:root:Processing Pokémon ID 33
+INFO:root:ETL process completed
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:10:49] "POST /etl HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:13:06] "OPTIONS /etl HTTP/1.1" 200 -
+INFO:root:ETL process started
+INFO:root:Processing Pokémon IDs: [16]
+INFO:root:Processing Pokémon ID 16
+INFO:root:ETL process completed
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:13:07] "POST /etl HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:13:37] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:13:38] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:13:40] "GET /pokemon/pidgey HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:14:36] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:14:37] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:14:40] "GET /api/pokemons?id=16 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:14:48] "GET /pokemon/nidorino HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:14:51] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:16:20] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:16:22] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:16:40] "GET /api/pokemons?id=12 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:18:41] "GET /api/pokemons?id=12 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:18:42] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:18:48] "GET /api/pokemons?id=12 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:19:29] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:19:30] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:19:33] "GET /api/pokemons?id=12 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:20:34] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:20:35] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:20:42] "GET /api/pokemons?id=12 HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.121:8000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:23:01] "GET /api/pokemons HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:23:10] "GET /api/pokemons?id=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:23:52] "GET /api/pokemons?type=Fire&id=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2025 00:24:01] "GET /api/pokemons HTTP/1.1" 200 -

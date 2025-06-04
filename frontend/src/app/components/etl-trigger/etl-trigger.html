@@ -1,0 +1,19 @@
+<div class="etl-trigger-container">
+  <h2>Trigger ETL</h2>
+
+  <label for="idsInput">Enter Pokémon IDs (e.g., 1,4,7-9):</label>
+  <input id="idsInput" [(ngModel)]="idsInput" placeholder="1, 4, 7-9" />
+
+  <button (click)="triggerETL()" [disabled]="loading">
+    {{ loading ? 'Triggering...' : 'Run ETL' }}
+  </button>
+
+  <div *ngIf="output" class="output">
+    <h3>ETL Output:</h3>
+    <pre>{{ output }}</pre>
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+</div>
