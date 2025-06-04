@@ -1,16 +1,22 @@
-<div class="container">
-  <h2>Pokémon Browser</h2>
+<div class="container" style="max-width: 80%; margin: auto; padding: 20px;">	
+  <!-- <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <h2 style="margin: 0; font-weight: 600; color: #3f51b5;">Pokémon Browser</h2>
+    <button mat-raised-button color="primary" (click)="triggerETL()" style="min-width: 120px;">
+      Run ETL
+    </button>
+  </div>
 
-  <button mat-raised-button color="primary" (click)="triggerETL()">Run ETL</button>
+  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+    <mat-form-field appearance="outline" style="flex: 1; min-width: 220px;">
+      <mat-label>Search Pokémon</mat-label>
+      <input matInput [(ngModel)]="search" placeholder="Enter name or ID" />
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="load()" style="min-width: 100px;">
+      Search
+    </button>
+  </div> -->
 
-  <mat-form-field appearance="outline" style="margin-left: 1rem;">
-    <mat-label>Search Pokémon</mat-label>
-    <input matInput [(ngModel)]="search" />
-  </mat-form-field>
-
-  <button mat-raised-button color="accent" (click)="load()">Search</button>
-
-  <table mat-table [dataSource]="pokemons" class="mat-elevation-z8" style="width: 100%; margin-top: 1rem;">
+  <table mat-table [dataSource]="pokemons" class="mat-elevation-z8">
     <!-- Sprite Column -->
   
 
@@ -23,7 +29,9 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let p"> {{ p.name }} </td>
+      <td mat-cell *matCellDef="let p">
+         <a [routerLink]="['/pokemon', p.name]">{{ p.name }}</a>
+        </td>
     </ng-container>
 
   
@@ -48,5 +56,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <p *ngIf="pokemons && !pokemons.length">No Pokémon found.</p>
+  
 </div>

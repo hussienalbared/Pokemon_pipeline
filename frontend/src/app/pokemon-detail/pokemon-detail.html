@@ -1,0 +1,65 @@
+<!-- Safe way to show Pokémon name -->
+
+<style>
+.pokemon-detail {
+  background: #f8f8ff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  margin: 24px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.pokemon-detail h2 {
+  text-align: center;
+  color: #2d72d9;
+  margin-bottom: 16px;
+}
+.pokemon-detail p {
+  margin: 8px 0;
+}
+.pokemon-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px 0;
+}
+.pokemon-detail li {
+  background: #e3eafc;
+  margin-bottom: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-right: 6px;
+}
+</style>
+
+<div *ngIf="pokemon() as p">
+  <h2 style="text-align: center;">{{ p.name }}</h2>
+  <div class="pokemon-detail">
+
+    <p><strong>ID:</strong>:{{ p.id }}</p>
+    <p><strong>Height:</strong> {{ p.height }}</p>
+    <p><strong>Weight:</strong> {{ p.weight }}</p>
+    <p><strong>Base Experience:</strong> {{ p.base_experience }}</p>
+
+    <p><strong>Abilities:</strong></p>
+    <ul>
+      <li *ngFor="let ability of p.abilities">
+        {{ ability.name }}
+      </li>
+    </ul>
+    <p><strong>Types:</strong></p>
+    <ul>
+      <li *ngFor="let type of p.types">
+        {{ type }}
+      </li>
+    </ul>
+    <p><strong>Stats:</strong></p>
+    <ul>
+      <li *ngFor="let stat of p.stats">
+        {{ stat.name }}: {{ stat.base_stat }}
+      </li>
+    </ul>
+
+  </div>
+</div>
