@@ -12,14 +12,14 @@ This project is a Pokémon-themed web application that enables users to explore,
 
 ## Installation
 
-1. **Clone the repository:**
+### Clone the repository:
 
    ```bash
    git clone https://github.com/hussienalbared/Pokemon_pipeline.git
    cd Pokemon_pipeline
 ````
 
-2. **Run Docker Compose:**
+### Run Docker Compose:
 
    ```bash
    docker-compose up --build
