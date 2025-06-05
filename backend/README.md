@@ -13,8 +13,8 @@ backend
 │   └── pokemon.db             # SQLite database
 ├── db                         # Database layer
 │   ├── __init__.py
-│   ├── base.py                # SQLAlchemy base
-│   ├── models.py              # DB models
+│   ├── base.py                # utilities database functions
+│   ├── models.py              # DB Sqlite management
 │   ├── queries.py             # Custom DB queries
 │   └── schema.py              # DB schema definition
 ├── graphql2                   # GraphQL schema and types
