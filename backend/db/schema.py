@@ -1,6 +1,21 @@
 # db/schema.py
 
 def create_tables(conn):
+    """
+    Creates all necessary tables for the Pokémon database schema if they do not already exist.
+    Tables created:
+    - Pokemon: Stores basic information about each Pokémon.
+    - Type: Stores unique Pokémon types.
+    - PokemonType: Associates Pokémon with their types (many-to-many relationship).
+    - Ability: Stores unique abilities.
+    - PokemonAbility: Associates Pokémon with their abilities, including whether the ability is hidden.
+    - Stat: Stores unique stats.
+    - PokemonStat: Associates Pokémon with their stats, including base stat and effort values.
+    - EvolutionChain: Stores evolution chain information for Pokémon.
+    Args:
+        conn (sqlite3.Connection): The SQLite database connection object.
+    Commits the changes to the database after creating the tables.
+    """
     cursor = conn.cursor()
     cursor.executescript("""
     CREATE TABLE IF NOT EXISTS Pokemon (

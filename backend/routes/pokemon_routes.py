@@ -1,10 +1,33 @@
-from flask import Blueprint, jsonify, abort
+from sqlite3 import Error
+from flask import Blueprint, jsonify, abort, request
 from db.base import get_db
 
 pokemon_bp = Blueprint('pokemon_bp', __name__)
 
 @pokemon_bp.route('/pokemon/<string:name>', methods=['GET'])
 def get_pokemon(name):
+    """
+    Retrieve detailed information about a Pokémon by its name.
+    This endpoint handles GET requests to '/pokemon/<name>' and returns a JSON object containing
+    the Pokémon's basic information, types, abilities, and stats. If the Pokémon is not found,
+    a 404 error is returned.
+    Args:
+        name (str): The name of the Pokémon to retrieve (case-insensitive).
+    Returns:
+        Response: A JSON response with the following structure:
+            {
+                'id': int,
+                'name': str,
+                'base_experience': int,
+                'height': int,
+                'weight': int,
+                'types': List[str],
+                'abilities': List[{'name': str, 'is_hidden': bool}],
+                'stats': List[{'name': str, 'base_stat': int, 'effort': int}]
+            }
+    Raises:
+        404: If the Pokémon with the specified name is not found in the database.
+    """
     db = get_db()
     pokemon = db.execute(
         "SELECT * FROM Pokemon WHERE LOWER(name) = LOWER(?)", (name,)
@@ -48,13 +71,24 @@ def get_pokemon(name):
 
 @pokemon_bp.route("/pokemon", methods=["GET"])
 def get_pokemons():
-    from flask import request
-    query = request.args.get("q", "")
-    db = get_db()
-    cursor = db.cursor()
-    if query:
-        cursor.execute("SELECT id, name, height, weight FROM Pokemon WHERE name LIKE ?", (f"%{query}%",))
-    else:
-        cursor.execute("SELECT id, name, height, weight FROM Pokemon LIMIT 50")
-    rows = cursor.fetchall()
-    return jsonify([{"id": r[0], "name": r[1], "height": r[2], "weight": r[3]} for r in rows])
+    limit = request.args.get("limit", default=50, type=int)
+    offset = request.args.get("offset", default=0, type=int)
+
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute(
+            """
+            SELECT id, name, height, weight
+            FROM Pokemon
+            LIMIT ? OFFSET ?
+            """, (limit, offset)
+        )
+        rows = cursor.fetchall()
+        pokemons = [
+            {"id": row[0], "name": row[1], "height": row[2], "weight": row[3]}
+            for row in rows
+        ]
+        return jsonify(pokemons), 200
+    except Error as e:
+        return jsonify({"error": "Database error", "message": str(e)}), 500

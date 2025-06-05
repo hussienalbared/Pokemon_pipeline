@@ -7,6 +7,28 @@ import sqlite3
 from typing import Dict
 
 class PokemonDB:
+    """
+    A database handler class for managing Pokémon data using SQLite.
+    Args:
+        db_path (str): Path to the SQLite database file.
+    Methods:
+        insert_pokemon(data: Dict):
+            Inserts or updates a Pokémon and its related data (types, abilities, stats, evolution chain) into the database.
+            Args:
+                data (Dict): A dictionary containing Pokémon data with keys:
+                    - id (int): Pokémon ID.
+                    - name (str): Pokémon name.
+                    - base_experience (int): Base experience value.
+                    - height (int): Height of the Pokémon.
+                    - weight (int): Weight of the Pokémon.
+                    - types (List[str]): List of type names.
+                    - abilities (List[Dict]): List of abilities, each with 'name' (str) and 'is_hidden' (bool).
+                    - stats (List[Dict]): List of stats, each with 'name' (str), 'base_stat' (int), and 'effort' (int).
+                    - evolution_chain_id (int): ID of the evolution chain.
+                    - evolution_chain (Any): Evolution chain data (serializable to JSON).
+        close():
+            Closes the database connection.
+    """
     def __init__(self, db_path):
         self.conn = sqlite3.connect(db_path)
         create_tables(self.conn)

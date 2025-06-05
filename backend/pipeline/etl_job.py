@@ -1,6 +1,4 @@
-import json
 import os
-import sys
 import logging
 from time import sleep
 
@@ -17,6 +15,21 @@ logging.basicConfig(
 )
 
 def run_etl(pokemon_ids):
+    """
+    Runs the ETL (Extract, Transform, Load) process for a list of Pokémon IDs.
+    This function creates the necessary database directory, initializes the Pokémon database,
+    and processes each Pokémon ID by fetching its data and inserting it into the database.
+    Logs are generated for each step, and errors are handled gracefully.
+    Args:
+        pokemon_ids (list): A list of Pokémon IDs (integers) to process.
+    Raises:
+        Any exceptions raised during data fetching or database insertion are logged but not propagated.
+    Side Effects:
+        - Creates the database directory if it does not exist.
+        - Inserts Pokémon data into the database.
+        - Writes log messages to the logging system.
+        - Sleeps for 0.5 seconds between processing each Pokémon ID.
+    """
     os.makedirs(os.path.dirname(DB_NAME), exist_ok=True)
     db = PokemonDB(DB_NAME)
 
@@ -34,9 +47,3 @@ def run_etl(pokemon_ids):
 
     db.close()
     logging.info("ETL process completed")
-
-# Uncomment this if you want to run from CLI
-# if __name__ == "__main__":
-#     ids_arg = sys.argv[1]
-#     pokemon_ids = json.loads(ids_arg)
-#     run_etl(pokemon_ids)

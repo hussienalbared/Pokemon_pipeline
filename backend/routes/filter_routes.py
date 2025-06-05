@@ -5,6 +5,26 @@ filter_bp = Blueprint('filter_bp', __name__)
 
 @filter_bp.route('/api/pokemons')
 def filter_pokemons():
+    """
+    Endpoint to filter and retrieve Pokémon based on query parameters.
+    This route handles GET requests to '/api/pokemons' and allows filtering Pokémon
+    by id, name, type, and ability. The filters are applied dynamically based on the
+    provided query parameters.
+
+    Query Parameters:
+        id (int, optional): The unique identifier of the Pokémon.
+        name (str, optional): A substring to search for in the Pokémon's name (case-insensitive).
+        type (str, optional): The name of the Pokémon's type (case-insensitive).
+        ability (str, optional): The name of the Pokémon's ability (case-insensitive).
+
+    Returns:
+        flask.Response: A JSON array of Pokémon objects matching the filters, where each object contains:
+            - id (int): Pokémon's unique identifier.
+            - name (str): Pokémon's name.
+            - base_experience (int): Pokémon's base experience value.
+            - height (int): Pokémon's height.
+            - weight (int): Pokémon's weight.
+    """
     args = request.args
     conn = get_db()
     cursor = conn.cursor()
@@ -33,12 +53,6 @@ def filter_pokemons():
     if 'ability' in args:
         filters.append("LOWER(a.name) = ?")
         params.append(args['ability'].lower())
-    if 'min_exp' in args:
-        filters.append("p.base_experience >= ?")
-        params.append(args['min_exp'])
-    if 'max_exp' in args:
-        filters.append("p.base_experience <= ?")
-        params.append(args['max_exp'])
 
     if filters:
         base_query += " AND " + " AND ".join(filters)
