@@ -54,8 +54,7 @@ pokemon
 
 * **Angular** – Frontend framework
 * **TypeScript** – Angular’s language
-* **Flask** – Backend web API
-* **SQLAlchemy** – ORM for DB access
+* **Flask** – Backend web APIs
 * **Docker + Docker Compose** – Deployment & orchestration
 * **SQLite** – (or PostgreSQL) as database
 * **[PokéAPI](https://pokeapi.co/)** – Pokémon data source

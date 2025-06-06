@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-etl-trigger',
   templateUrl: './etl-trigger.html',
   styleUrls: ['./etl-trigger.css'],
-  imports: [FormsModule,CommonModule ],
+  imports: [FormsModule,CommonModule,RouterModule ],
 })
 export class EtlTriggerComponent {
   idsInput = '';
@@ -15,7 +17,7 @@ export class EtlTriggerComponent {
   output: string | null = null;
   error: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private router: Router) {}
 
   triggerETL() {
     this.loading = true;
@@ -33,11 +35,12 @@ export class EtlTriggerComponent {
       .subscribe({
         next: (res) => {
           console.log('ETL response:', res);
-          this.output = res.output || 'ETL triggered successfully.';
+          this.output = 'ETL triggered successfully.';
           this.loading = false;
+          this.router.navigate(['/search']);
         },
         error: (err) => {
-          this.error = err.error?.error || 'ETL request failed.';
+          this.error = 'ETL request failed.';
           this.loading = false;
         }
       });

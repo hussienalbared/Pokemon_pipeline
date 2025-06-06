@@ -71,6 +71,48 @@ docker run -p 8000:8000 pokemon-api
 * SQLite for local data persistence
 * Modular and scalable project structure
 
+## 🧩 Using the GraphQL API
+
+The GraphQL endpoint is available at `/graphql`.
+
+**Example Query:**
+
+```graphql
+query {
+    {
+     pokemon(id: 10) {
+        id
+        name
+        weight
+        types {
+            id
+            name
+        }
+  }
+}
+}
+```
+
+**Example Response:**
+
+```json
+{
+  "data": {
+    "pokemon": {
+      "id": 10,
+      "name": "caterpie",
+      "weight": 29,
+      "types": [
+        {
+          "id": 6,
+          "name": "bug"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## 📌 Notes
 
 * Default database: `data/pokemon.db`
